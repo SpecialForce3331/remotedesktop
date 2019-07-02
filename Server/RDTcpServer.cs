@@ -13,12 +13,12 @@ namespace RemoteDesktop
     {
         private IPAddress listenAddr = IPAddress.Parse("127.0.0.1");
         private const int port = 9999;
-        TcpListener server;
+        private TcpListener server;
 
         private void HandleConnection(TcpClient client)
         {
             NetworkStream stream = client.GetStream();
-            String message = "Server message";
+            const String message = "Server message";
             byte[] data = Encoding.UTF8.GetBytes(message);
             stream.Write(data, 0, data.Length);
             stream.Close();

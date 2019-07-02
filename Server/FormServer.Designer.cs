@@ -50,7 +50,7 @@
             this.buttonServerStart.TabIndex = 1;
             this.buttonServerStart.Text = "Start Server";
             this.buttonServerStart.UseVisualStyleBackColor = true;
-            this.buttonServerStart.Click += new System.EventHandler(this.buttonServerStart_Click);
+            this.buttonServerStart.Click += new System.EventHandler(this.ButtonServerStart_Click);
             // 
             // buttonStopServer
             // 
@@ -60,7 +60,7 @@
             this.buttonStopServer.TabIndex = 2;
             this.buttonStopServer.Text = "Stop Server";
             this.buttonStopServer.UseVisualStyleBackColor = true;
-            this.buttonStopServer.Click += new System.EventHandler(this.buttonStopServer_Click);
+            this.buttonStopServer.Click += new System.EventHandler(this.ButtonStopServer_Click);
             // 
             // Form1
             // 

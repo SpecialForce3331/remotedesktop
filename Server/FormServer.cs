@@ -13,21 +13,20 @@ namespace RemoteDesktop
 {
     public partial class FormServer : Form
     {
-        RDTcpServer server;
-        Thread serverThread;
-        CancellationTokenSource cancelTokenSource;
-        CancellationToken token;
+        private RDTcpServer server;
+        private Thread serverThread;
+        private CancellationTokenSource cancelTokenSource;
+        private CancellationToken token;
+        private const string WAIT_FOR_ACTION = "Waiting for action!";
 
         public FormServer()
         {
-
-            server = new RDTcpServer();
-
             InitializeComponent();
-            labelServerStatus.Text = "Waiting for action!";
+            server = new RDTcpServer();
+            labelServerStatus.Text = WAIT_FOR_ACTION;
         }
 
-        private void serverStart()
+        private void ServerStart()
         {
             server.Start(token);
         }
@@ -39,11 +38,11 @@ namespace RemoteDesktop
             {
                 Thread.Sleep(500);
             }
-            labelServerStatus.Text = "Waiting for action!";
+            labelServerStatus.Text = WAIT_FOR_ACTION;
             Console.WriteLine("Server stopped");
         }
 
-        private void buttonServerStart_Click(object sender, EventArgs e)
+        private void ButtonServerStart_Click(object sender, EventArgs e)
         {
             if (serverThread != null && !serverThread.ThreadState.Equals(ThreadState.Unstarted))
             {
@@ -52,7 +51,7 @@ namespace RemoteDesktop
             cancelTokenSource = new CancellationTokenSource();
             token = cancelTokenSource.Token;
 
-            serverThread = new Thread(serverStart);
+            serverThread = new Thread(ServerStart);
             serverThread.Start();
 
             while (!serverThread.IsAlive)
@@ -64,7 +63,7 @@ namespace RemoteDesktop
 
         }
 
-        private void buttonStopServer_Click(object sender, EventArgs e)
+        private void ButtonStopServer_Click(object sender, EventArgs e)
         {
             stopServer();
         }
