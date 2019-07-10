@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
 namespace RemoteDesktop
 {
     class RDTcpServer
     {
-        private IPAddress listenAddr = IPAddress.Parse("127.0.0.1");
+        private readonly IPAddress listenAddr = IPAddress.Parse("127.0.0.1");
         private const int port = 9999;
         private TcpListener server;
 
@@ -24,6 +25,28 @@ namespace RemoteDesktop
             stream.Close();
             client.Close();
         }
+
+        private Bitmap TakeScreenshot()
+        {
+            Rectangle totalSize = Rectangle.Empty;
+
+            foreach (Screen s in Screen.AllScreens)
+                totalSize = Rectangle.Union(totalSize, s.Bounds);
+
+            Bitmap screenShotBMP = new Bitmap(totalSize.Width, totalSize.Height, PixelFormat.Format32bppArgb);
+            Graphics screenShotGraphics = Graphics.FromImage(screenShotBMP);
+            screenShotGraphics.CopyFromScreen(totalSize.X, totalSize.Y, 0, 0, totalSize.Size, CopyPixelOperation.SourceCopy);
+            screenShotGraphics.Dispose();
+
+            return screenShotBMP;
+        }
+
+        private void CompressScreenshoot()
+        {
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.QualityLevel = 40;
+        }
+
 
         public void Start(CancellationToken token)
         {

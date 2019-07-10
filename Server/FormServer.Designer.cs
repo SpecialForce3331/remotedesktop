@@ -44,7 +44,7 @@
             // 
             // buttonServerStart
             // 
-            this.buttonServerStart.Location = new System.Drawing.Point(56, 74);
+            this.buttonServerStart.Location = new System.Drawing.Point(104, 75);
             this.buttonServerStart.Name = "buttonServerStart";
             this.buttonServerStart.Size = new System.Drawing.Size(75, 23);
             this.buttonServerStart.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // buttonStopServer
             // 
-            this.buttonStopServer.Location = new System.Drawing.Point(56, 104);
+            this.buttonStopServer.Location = new System.Drawing.Point(104, 104);
             this.buttonStopServer.Name = "buttonStopServer";
             this.buttonStopServer.Size = new System.Drawing.Size(75, 23);
             this.buttonStopServer.TabIndex = 2;
@@ -62,15 +62,15 @@
             this.buttonStopServer.UseVisualStyleBackColor = true;
             this.buttonStopServer.Click += new System.EventHandler(this.ButtonStopServer_Click);
             // 
-            // Form1
+            // FormServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(273, 169);
             this.Controls.Add(this.buttonStopServer);
             this.Controls.Add(this.buttonServerStart);
             this.Controls.Add(this.labelServerStatus);
-            this.Name = "Form1";
+            this.Name = "FormServer";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

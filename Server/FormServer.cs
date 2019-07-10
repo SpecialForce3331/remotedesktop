@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RemoteDesktop
@@ -31,7 +24,7 @@ namespace RemoteDesktop
             server.Start(token);
         }
 
-        private void stopServer()
+        private void StopServer()
         {
             cancelTokenSource.Cancel();
             while (serverThread.IsAlive)
@@ -46,7 +39,7 @@ namespace RemoteDesktop
         {
             if (serverThread != null && !serverThread.ThreadState.Equals(ThreadState.Unstarted))
             {
-                stopServer();
+                StopServer();
             }
             cancelTokenSource = new CancellationTokenSource();
             token = cancelTokenSource.Token;
@@ -60,12 +53,11 @@ namespace RemoteDesktop
             }
             labelServerStatus.Text = "Waiting for incoming connection...";
             Console.WriteLine("Server started");
-
         }
 
         private void ButtonStopServer_Click(object sender, EventArgs e)
         {
-            stopServer();
+            StopServer();
         }
     }
 }

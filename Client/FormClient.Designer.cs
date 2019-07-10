@@ -33,6 +33,8 @@
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBoxChat = new System.Windows.Forms.TextBox();
+            this.buttonDisconnect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonConnect
@@ -77,17 +79,37 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Port";
             // 
-            // Form1
+            // textBoxChat
+            // 
+            this.textBoxChat.Location = new System.Drawing.Point(320, 12);
+            this.textBoxChat.Multiline = true;
+            this.textBoxChat.Name = "textBoxChat";
+            this.textBoxChat.Size = new System.Drawing.Size(188, 187);
+            this.textBoxChat.TabIndex = 5;
+            // 
+            // buttonDisconnect
+            // 
+            this.buttonDisconnect.Enabled = false;
+            this.buttonDisconnect.Location = new System.Drawing.Point(94, 84);
+            this.buttonDisconnect.Name = "buttonDisconnect";
+            this.buttonDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.buttonDisconnect.TabIndex = 6;
+            this.buttonDisconnect.Text = "Disconnect";
+            this.buttonDisconnect.UseVisualStyleBackColor = true;
+            // 
+            // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(520, 211);
+            this.Controls.Add(this.buttonDisconnect);
+            this.Controls.Add(this.textBoxChat);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxPort);
             this.Controls.Add(this.TextBoxIpAddress);
             this.Controls.Add(this.ButtonConnect);
-            this.Name = "Form1";
+            this.Name = "FormClient";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,6 +123,8 @@
         private System.Windows.Forms.TextBox textBoxPort;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxChat;
+        private System.Windows.Forms.Button buttonDisconnect;
     }
 }
 
